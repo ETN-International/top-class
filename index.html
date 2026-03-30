@@ -28,17 +28,26 @@
     
     /* ===== COLORS & VARIABLES ===== */
     :root {
-      --navy: #0a192f;
-      --navy-light: #112240;
-      --gold: #d4af37;
-      --gold-light: #f4d03f;
-      --gold-hover: #b89628;
+      /* Mediterranean Palette */
+      --sea-blue: #006994;
+      --sea-deep: #00334e;
+      --turquoise: #40c4d8;
+      --turquoise-dark: #2aa8bc;
+      --coral: #ff6b6b;
+      --coral-hover: #ee5a5a;
+      --sand: #f4e4c1;
+      --sand-light: #faf3e6;
+      --sun-yellow: #ffb347;
+      
+      /* Neutrals */
       --white: #ffffff;
       --gray-light: #f8f9fa;
       --gray: #64748b;
       --gray-dark: #334155;
-      --shadow: 0 10px 40px rgba(0,0,0,0.1);
-      --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+      
+      /* Effects */
+      --shadow: 0 10px 40px rgba(0,105,148,0.15);
+      --shadow-hover: 0 20px 60px rgba(0,105,148,0.25);
       --radius: 12px;
       --radius-lg: 24px;
       --container: 1200px;
@@ -57,7 +66,10 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 700;
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--sea-deep) 0%, var(--sea-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 20px;
       text-align: center;
       line-height: 1.2;
@@ -76,16 +88,17 @@
       align-items: center;
       justify-content: center;
       padding: 16px 40px;
-      background: var(--gold);
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-hover) 100%);
+      color: var(--white);
       font-weight: 600;
       border-radius: 50px;
-      border: 2px solid var(--gold);
+      border: none;
       cursor: pointer;
       transition: var(--transition);
       font-size: 1.05rem;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
     }
     .btn::before {
       content: '';
@@ -100,16 +113,16 @@
     .btn:hover::before { left: 100%; }
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+      box-shadow: 0 10px 30px rgba(255,107,107,0.5);
     }
     .btn-outline {
       background: transparent;
-      color: var(--gold);
-      border-color: var(--gold);
+      color: var(--coral);
+      border: 2px solid var(--coral);
     }
     .btn-outline:hover {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--coral);
+      color: var(--white);
     }
     .btn-large {
       padding: 20px 48px;
@@ -124,10 +137,10 @@
       z-index: 1000;
       display: flex;
       gap: 8px;
-      background: rgba(255,255,255,0.95);
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-dark) 100%);
       padding: 8px;
       border-radius: 50px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,105,148,0.2);
       backdrop-filter: blur(10px);
     }
     .lang-btn {
@@ -135,15 +148,17 @@
       border: none;
       background: transparent;
       font-weight: 600;
-      color: var(--gray);
+      color: var(--white);
       border-radius: 50px;
       cursor: pointer;
       transition: var(--transition);
       font-size: 0.9rem;
+      opacity: 0.8;
     }
     .lang-btn.active, .lang-btn:hover {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--white);
+      color: var(--sea-blue);
+      opacity: 1;
     }
     
     /* ===== HEADER ===== */
@@ -154,7 +169,7 @@
       background: rgba(255,255,255,0.98);
       backdrop-filter: blur(20px);
       z-index: 999;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 20px rgba(0,105,148,0.1);
       padding: 20px 0;
       transition: var(--transition);
     }
@@ -170,16 +185,24 @@
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--sea-blue) 0%, var(--turquoise) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .logo span { color: var(--gold); }
+    .logo span { 
+      background: linear-gradient(135deg, var(--coral) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .nav-links {
       display: flex;
       gap: 40px;
     }
     .nav-links a {
       font-weight: 500;
-      color: var(--navy);
+      color: var(--sea-deep);
       font-size: 1rem;
       position: relative;
     }
@@ -190,7 +213,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gold);
+      background: linear-gradient(90deg, var(--turquoise), var(--coral));
       transition: width 0.3s;
     }
     .nav-links a:hover::after { width: 100%; }
@@ -199,14 +222,14 @@
       background: none;
       border: none;
       font-size: 1.8rem;
-      color: var(--navy);
+      color: var(--sea-deep);
       cursor: pointer;
     }
     
     /* ===== HERO SECTION ===== */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, rgba(10,25,47,0.95) 0%, rgba(17,34,64,0.9) 100%), 
+      background: linear-gradient(135deg, rgba(0,51,78,0.95) 0%, rgba(0,105,148,0.85) 100%),
                   url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80') center/cover;
       display: flex;
       align-items: center;
@@ -222,7 +245,7 @@
       left: 0;
       right: 0;
       height: 200px;
-      background: linear-gradient(to top, rgba(10,25,47,1), transparent);
+      background: linear-gradient(to top, rgba(0,51,78,1), transparent);
     }
     .hero-content {
       position: relative;
@@ -231,14 +254,15 @@
     }
     .hero-badge {
       display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-dark) 100%);
+      color: var(--white);
       padding: 10px 24px;
       border-radius: 50px;
       font-weight: 600;
       font-size: 0.9rem;
       margin-bottom: 24px;
       animation: fadeInDown 0.8s ease;
+      box-shadow: 0 4px 15px rgba(64,196,216,0.4);
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
@@ -249,7 +273,10 @@
       animation: fadeInUp 0.8s ease 0.2s both;
     }
     .hero-title span {
-      color: var(--gold);
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       display: block;
     }
     .hero-subtitle {
@@ -280,12 +307,15 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 700;
-      color: var(--gold);
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       display: block;
     }
     .hero-stat-label {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
     }
     
     /* ===== VIDEO SECTION ===== */
@@ -297,7 +327,7 @@
     .video-container {
       position: relative;
       height: 600px;
-      background: linear-gradient(rgba(10,25,47,0.7), rgba(10,25,47,0.7)), 
+      background: linear-gradient(rgba(0,51,78,0.7), rgba(0,105,148,0.7)),
                   url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1920&q=80') center/cover;
       display: flex;
       align-items: center;
@@ -306,22 +336,22 @@
     .play-button {
       width: 100px;
       height: 100px;
-      background: var(--gold);
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-hover) 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 40px rgba(255,107,107,0.4);
     }
     .play-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 15px 50px rgba(212,175,55,0.5);
+      box-shadow: 0 15px 50px rgba(255,107,107,0.6);
     }
     .play-button::before {
       content: '▶';
-      color: var(--navy);
+      color: var(--white);
       font-size: 2rem;
       margin-left: 8px;
     }
@@ -349,14 +379,14 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: var(--gold);
+      background: linear-gradient(90deg, var(--turquoise), var(--coral));
       transform: scaleX(0);
       transition: transform 0.4s;
     }
     .context-card:hover::before { transform: scaleX(1); }
-    .context-card:hover { 
-      transform: translateY(-10px); 
-      box-shadow: var(--shadow-hover); 
+    .context-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
     }
     .context-card-image {
       height: 220px;
@@ -369,23 +399,24 @@
     .context-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
-      color: var(--navy);
+      color: var(--sea-deep);
       margin-bottom: 12px;
     }
-    .context-card p { 
+    .context-card p {
       color: var(--gray);
       line-height: 1.7;
     }
     .context-icon {
       width: 60px;
       height: 60px;
-      background: var(--gold);
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-dark) 100%);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
       margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(64,196,216,0.3);
     }
     
     /* ===== PROGRAM DETAILS ===== */
@@ -406,14 +437,14 @@
     }
     .detail-item:hover {
       transform: translateY(-8px);
-      border-color: var(--gold);
+      border-color: var(--turquoise);
       box-shadow: var(--shadow-hover);
     }
     .detail-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      color: var(--gold);
+      background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sea-deep) 100%);
+      color: var(--coral);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -428,21 +459,26 @@
     .detail-item h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      color: var(--navy);
+      color: var(--sea-deep);
       margin-bottom: 12px;
     }
-    .detail-item p { 
-      color: var(--gray); 
+    .detail-item p {
+      color: var(--gray);
       font-size: 1rem;
       line-height: 1.7;
     }
     
     /* ===== GALLERY SECTION ===== */
     .gallery {
-      background: var(--navy);
+      background: linear-gradient(135deg, var(--sea-deep) 0%, var(--sea-blue) 100%);
       color: var(--white);
     }
-    .gallery .section-title { color: var(--white); }
+    .gallery .section-title { 
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .gallery .section-subtitle { color: rgba(255,255,255,0.85); }
     .gallery-grid {
       display: grid;
@@ -489,8 +525,8 @@
     }
     
     /* ===== SCHOOL PARTNERSHIP ===== */
-    .partnership { 
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    .partnership {
+      background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sea-deep) 100%);
       color: var(--white);
       position: relative;
       overflow: hidden;
@@ -502,10 +538,15 @@
       right: -20%;
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,107,107,0.15) 0%, transparent 70%);
       border-radius: 50%;
     }
-    .partnership .section-title { color: var(--white); }
+    .partnership .section-title { 
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .partnership .section-subtitle { color: rgba(255,255,255,0.85); }
     .partnership-grid {
       display: grid;
@@ -520,13 +561,13 @@
       backdrop-filter: blur(10px);
       padding: 40px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 1px solid rgba(64,196,216,0.4);
       transition: var(--transition);
     }
     .partnership-card:hover {
       background: rgba(255,255,255,0.12);
       transform: translateY(-5px);
-      border-color: var(--gold);
+      border-color: var(--turquoise);
     }
     .partnership-card h4 {
       font-family: 'Playfair Display', serif;
@@ -538,11 +579,11 @@
     }
     .partnership-card h4::before {
       content: '✦';
-      color: var(--gold);
+      color: var(--coral);
       font-size: 1.5rem;
     }
-    .partnership-card p { 
-      color: rgba(255,255,255,0.9); 
+    .partnership-card p {
+      color: rgba(255,255,255,0.9);
       font-size: 1rem;
       line-height: 1.8;
     }
@@ -561,11 +602,11 @@
     .stat-card {
       text-align: center;
       padding: 40px;
-      background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 100%);
+      background: linear-gradient(135deg, var(--sand-light) 0%, var(--white) 100%);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       transition: var(--transition);
-      border-bottom: 4px solid var(--gold);
+      border-bottom: 4px solid var(--turquoise);
     }
     .stat-card:hover {
       transform: translateY(-8px);
@@ -575,7 +616,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 4rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      background: linear-gradient(135deg, var(--coral) 0%, var(--sun-yellow) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -590,7 +631,7 @@
     
     /* ===== TESTIMONIALS ===== */
     .testimonials {
-      background: var(--gray-light);
+      background: var(--sand-light);
       position: relative;
     }
     .testimonials-grid {
@@ -615,7 +656,7 @@
       content: '"';
       font-family: 'Playfair Display', serif;
       font-size: 6rem;
-      color: var(--gold);
+      color: var(--coral);
       opacity: 0.3;
       position: absolute;
       top: -10px;
@@ -639,12 +680,12 @@
       height: 60px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--gold);
+      border: 3px solid var(--turquoise);
     }
     .testimonial-info h5 {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
-      color: var(--navy);
+      color: var(--sea-deep);
     }
     .testimonial-info p {
       color: var(--gray);
@@ -667,7 +708,7 @@
       transition: var(--transition);
     }
     .faq-item:hover {
-      border-color: var(--gold);
+      border-color: var(--turquoise);
     }
     .faq-question {
       width: 100%;
@@ -677,7 +718,7 @@
       text-align: left;
       font-size: 1.15rem;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--sea-deep);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -685,22 +726,22 @@
       transition: var(--transition);
       font-family: 'Inter', sans-serif;
     }
-    .faq-question:hover { 
-      background: rgba(212,175,55,0.05);
-      color: var(--gold-hover);
+    .faq-question:hover {
+      background: rgba(64,196,216,0.05);
+      color: var(--sea-blue);
     }
     .faq-question::after {
       content: '+';
       font-size: 2rem;
-      color: var(--gold);
+      color: var(--coral);
       transition: transform 0.3s;
       font-weight: 300;
     }
-    .faq-item.active .faq-question::after { 
-      transform: rotate(45deg); 
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
     }
     .faq-item.active .faq-question {
-      color: var(--gold-hover);
+      color: var(--coral);
     }
     .faq-answer {
       max-height: 0;
@@ -717,8 +758,8 @@
     }
     
     /* ===== CONTACT FORM ===== */
-    .contact { 
-      background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 100%);
+    .contact {
+      background: linear-gradient(135deg, var(--sand-light) 0%, var(--white) 100%);
       position: relative;
     }
     .contact::before {
@@ -728,7 +769,7 @@
       left: 0;
       right: 0;
       height: 5px;
-      background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
+      background: linear-gradient(90deg, var(--sea-blue), var(--turquoise), var(--coral));
     }
     .contact-wrapper {
       display: grid;
@@ -742,7 +783,10 @@
     .contact-info-side h3 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--sea-blue) 0%, var(--sea-deep) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 24px;
     }
     .contact-info-side > p {
@@ -760,17 +804,18 @@
     .contact-icon {
       width: 50px;
       height: 50px;
-      background: var(--gold);
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-hover) 100%);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
       flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
     }
     .contact-detail h4 {
       font-size: 1.1rem;
-      color: var(--navy);
+      color: var(--sea-deep);
       margin-bottom: 4px;
     }
     .contact-detail p {
@@ -795,7 +840,7 @@
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--sea-deep);
       font-size: 0.95rem;
     }
     .form-input, .form-select, .form-textarea {
@@ -810,12 +855,12 @@
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+      border-color: var(--turquoise);
+      box-shadow: 0 0 0 4px rgba(64,196,216,0.15);
     }
-    .form-textarea { 
-      min-height: 140px; 
-      resize: vertical; 
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
     }
     .form-submit {
       grid-column: 1 / -1;
@@ -824,8 +869,8 @@
     
     /* ===== CTA SECTION ===== */
     .cta-section {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%), 
-                  url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80') center/cover;
+      background: linear-gradient(135deg, var(--sea-deep) 0%, var(--sea-blue) 100%),
+                  url('https://images.unsplash.com/photo-1520250491-112f2f40a3f4?w=1920&q=80') center/cover;
       background-blend-mode: overlay;
       color: var(--white);
       text-align: center;
@@ -840,7 +885,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(10,25,47,0.8) 100%);
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,51,78,0.8) 100%);
     }
     .cta-content {
       position: relative;
@@ -853,6 +898,10 @@
       font-size: 3.5rem;
       margin-bottom: 20px;
       line-height: 1.2;
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .cta-section p {
       font-size: 1.3rem;
@@ -862,7 +911,7 @@
     
     /* ===== FOOTER ===== */
     footer {
-      background: var(--navy);
+      background: linear-gradient(135deg, var(--sea-deep) 0%, var(--sea-blue) 100%);
       color: var(--white);
       padding: 80px 0 30px;
     }
@@ -876,6 +925,10 @@
       font-size: 2.5rem;
       margin-bottom: 20px;
       display: inline-block;
+      background: linear-gradient(135deg, var(--turquoise) 0%, var(--sun-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .footer-brand p {
       color: rgba(255,255,255,0.7);
@@ -889,25 +942,25 @@
     .social-links a {
       width: 44px;
       height: 44px;
-      background: rgba(212,175,55,0.2);
+      background: rgba(255,107,107,0.2);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
+      color: var(--turquoise);
       font-size: 1.2rem;
       transition: var(--transition);
     }
     .social-links a:hover {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--coral);
+      color: var(--white);
       transform: translateY(-3px);
     }
     .footer-column h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
       margin-bottom: 24px;
-      color: var(--gold);
+      color: var(--turquoise);
     }
     .footer-links a {
       display: block;
@@ -916,8 +969,8 @@
       font-size: 1rem;
       transition: var(--transition);
     }
-    .footer-links a:hover { 
-      color: var(--gold);
+    .footer-links a:hover {
+      color: var(--coral);
       padding-left: 5px;
     }
     .footer-contact p {
@@ -933,6 +986,12 @@
       text-align: center;
       color: rgba(255,255,255,0.5);
       font-size: 0.95rem;
+    }
+    .footer-bottom a {
+      color: var(--turquoise);
+    }
+    .footer-bottom a:hover {
+      color: var(--coral);
     }
     
     /* ===== ANIMATIONS ===== */
@@ -1032,9 +1091,9 @@
 
   <!-- Language Switcher -->
   <div class="lang-switcher">
-    <button class="lang-btn active">IT</button>
-    <button class="lang-btn">EN</button>
-    <button class="lang-btn">PL</button>
+    <button class="lang-btn active" data-lang="it">IT</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="pl">PL</button>
   </div>
 
   <!-- Header -->
@@ -1043,12 +1102,12 @@
       <a href="#" class="logo">Top <span>Class</span></a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#programma">Programma</a></li>
-          <li><a href="#galleria">Galleria</a></li>
-          <li><a href="#scuole">Per le Scuole</a></li>
-          <li><a href="#testimonianze">Testimonianze</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contatti">Contatti</a></li>
+          <li><a href="#programma" data-i18n="nav-programma">Programma</a></li>
+          <li><a href="#galleria" data-i18n="nav-galleria">Galleria</a></li>
+          <li><a href="#scuole" data-i18n="nav-scuole">Per le Scuole</a></li>
+          <li><a href="#testimonianze" data-i18n="nav-testimonianze">Testimonianze</a></li>
+          <li><a href="#faq" data-i18n="nav-faq">FAQ</a></li>
+          <li><a href="#contatti" data-i18n="nav-contatti">Contatti</a></li>
         </ul>
       </nav>
       <button class="mobile-menu-btn">☰</button>
@@ -1059,32 +1118,32 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">🏆 Programma Esclusivo per Istituti Alberghieri</div>
+        <div class="hero-badge" data-i18n="hero-badge">🏆 Programma Esclusivo per Istituti Alberghieri</div>
         <h1 class="hero-title">
-          Forma i Tuoi Studenti
-          <span>Nel Lusso Internazionale</span>
+          <span data-i18n="hero-title-1">Forma i Tuoi Studenti</span>
+          <span data-i18n="hero-title-2">Nel Lusso Internazionale</span>
         </h1>
-        <p class="hero-subtitle">
-          Tirocini retribuiti in resort 4★ e 5★ sull'isola di Rodi. 
+        <p class="hero-subtitle" data-i18n="hero-subtitle">
+          Tirocini retribuiti in resort 4★ e 5★ sull'isola di Rodi.
           Un'esperienza che trasforma il talento in carriera internazionale.
         </p>
         <div class="hero-cta">
-          <a href="#contatti" class="btn btn-large">Richiedi Informazioni per la Tua Scuola</a>
-          <a href="#programma" class="btn btn-large btn-outline">Scopri il Programma</a>
+          <a href="#contatti" class="btn btn-large" data-i18n="hero-cta-primary">Richiedi Informazioni per la Tua Scuola</a>
+          <a href="#programma" class="btn btn-large btn-outline" data-i18n="hero-cta-secondary">Scopri il Programma</a>
         </div>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="hero-stat-number">20+</span>
-          <span class="hero-stat-label">Anni di Esperienza</span>
+          <span class="hero-stat-label" data-i18n="stat-experience">Anni di Esperienza</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-number">5000+</span>
-          <span class="hero-stat-label">Studenti Formati</span>
+          <span class="hero-stat-label" data-i18n="stat-students">Studenti Formati</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-number">50+</span>
-          <span class="hero-stat-label">Resort Partner</span>
+          <span class="hero-stat-label" data-i18n="stat-resorts">Resort Partner</span>
         </div>
       </div>
     </div>
@@ -1443,7 +1502,7 @@
             <div class="form-group full">
               <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
                 <input type="checkbox" required style="margin-top: 4px;">
-                <span style="font-size: 0.9rem; color: var(--gray);">Ho letto e accetto la <a href="#" style="color: var(--gold); text-decoration: underline;">Privacy Policy</a> e il trattamento dei dati personali *</span>
+                <span style="font-size: 0.9rem; color: var(--gray);">Ho letto e accetto la <a href="#" style="color: var(--coral); text-decoration: underline;">Privacy Policy</a> e il trattamento dei dati personali *</span>
               </label>
             </div>
             <div class="form-group form-submit">
@@ -1511,7 +1570,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 ETN International - Aristos. Tutti i diritti riservati. | <a href="#" style="color: var(--gold);">Privacy Policy</a> | <a href="#" style="color: var(--gold);">Cookie Policy</a> | <a href="#" style="color: var(--gold);">Termini e Condizioni</a></p>
+        <p>&copy; 2024 ETN International - Aristos. Tutti i diritti riservati. | <a href="#" style="color: var(--turquoise);">Privacy Policy</a> | <a href="#" style="color: var(--turquoise);">Cookie Policy</a> | <a href="#" style="color: var(--turquoise);">Termini e Condizioni</a></p>
       </div>
     </div>
   </footer>
@@ -1583,29 +1642,602 @@
       });
     });
     
-    // Language Switcher (UI Only)
+    // Language Switcher
+    const translations = {
+      it: {
+        // Navigation
+        'nav-programma': 'Programma',
+        'nav-galleria': 'Galleria',
+        'nav-scuole': 'Per le Scuole',
+        'nav-testimonianze': 'Testimonianze',
+        'nav-faq': 'FAQ',
+        'nav-contatti': 'Contatti',
+        
+        // Hero
+        'hero-badge': '🏆 Programma Esclusivo per Istituti Alberghieri',
+        'hero-title-1': 'Forma i Tuoi Studenti',
+        'hero-title-2': 'Nel Lusso Internazionale',
+        'hero-subtitle': 'Tirocini retribuiti in resort 4★ e 5★ sull\'isola di Rodi. Un\'esperienza che trasforma il talento in carriera internazionale.',
+        'hero-cta-primary': 'Richiedi Informazioni per la Tua Scuola',
+        'hero-cta-secondary': 'Scopri il Programma',
+        
+        // Stats
+        'stat-experience': 'Anni di Esperienza',
+        'stat-students': 'Studenti Formati',
+        'stat-resorts': 'Resort Partner',
+        
+        // Context
+        'context-title': 'Perché Scegliere Top Class',
+        'context-subtitle': 'Un\'opportunità unica per elevare la formazione dei tuoi studenti e il prestigio del tuo Istituto',
+        'context-card-1-title': 'PCTO e Crediti Formativi',
+        'context-card-1-text': 'Esperienza riconosciuta come percorso per le competenze trasversali e l\'orientamento, con certificazione ufficiale delle competenze acquisite in contesto internazionale.',
+        'context-card-2-title': 'Orientamento in Uscita',
+        'context-card-2-text': 'Offri ai neodiplomati un\'alternativa concreta al mercato del lavoro internazionale, aumentando i tassi di occupazione post-diploma in strutture di eccellenza.',
+        'context-card-3-title': 'Prestigio dell\'Istituto',
+        'context-card-3-text': 'Collaborare con network internazionali di eccellenza eleva il profilo della scuola, attira nuovi studenti motivati e crea partnership durature.',
+        
+        // Details
+        'details-title': 'Il Programma in Dettaglio',
+        'details-subtitle': 'Tutto quello che c\'è da sapere sull\'esperienza professionale a Rodi',
+        'detail-1-title': 'Destinatari',
+        'detail-1-text': 'Studenti ≥18 anni, neodiplomati e iscritti a istituti alberghieri con passione per l\'hospitality',
+        'detail-2-title': 'Durata Flessibile',
+        'detail-2-text': 'Tirocinio estivo (3-6 mesi) o annuale, perfettamente integrabile con il calendario scolastico',
+        'detail-3-title': 'Retribuzione',
+        'detail-3-text': 'Indennità mensile competitiva + vitto e alloggio in strutture 4★/5★ verificate',
+        'detail-4-title': 'Supporto Completo',
+        'detail-4-text': 'Gestione totale di contratto, assicurazione, visti e compliance burocratica',
+        'detail-5-title': 'Struttura di Lusso',
+        'detail-5-text': 'Resort 4★ e 5★ selezionati per garantire un\'esperienza formativa di altissimo livello',
+        'detail-6-title': 'Certificazione',
+        'detail-6-text': 'Attestato finale delle competenze acquisite valido per il curriculum e crediti formativi',
+        
+        // Gallery
+        'gallery-title': 'Scopri Rodi e i Nostri Resort',
+        'gallery-subtitle': 'Dove i tuoi studenti vivranno un\'esperienza indimenticabile',
+        
+        // Partnership
+        'partnership-title': 'Partnership con la Tua Scuola',
+        'partnership-subtitle': 'Una collaborazione semplice, strutturata e vantaggiosa per Referenti PCTO e Dirigenti',
+        'partnership-card-1-title': 'Convenzione Semplificata',
+        'partnership-card-1-text': 'Accordi quadro rapidi e snelli per permettere alla scuola di inviare candidati in totale sicurezza e con completa copertura assicurativa. Zero burocrazia complessa.',
+        'partnership-card-2-title': 'Supporto Dedicato ai Referenti',
+        'partnership-card-2-text': 'Un referente ETN dedicato per gestire tutte le pratiche burocratiche, il monitoraggio durante il tirocinio e la comunicazione costante con la scuola.',
+        'partnership-card-3-title': 'Info Sessioni Gratuite',
+        'partnership-card-3-text': 'Disponibilità a organizzare webinar interattivi o incontri in presenza presso il vostro Istituto per presentare nel dettaglio l\'opportunità a studenti e famiglie.',
+        'partnership-card-4-title': 'Selezione Qualificata',
+        'partnership-card-4-text': 'Gestiamo noi tutto il processo di selezione: riceviamo le candidature, effettuiamo i colloqui motivazionali e selezioniamo solo i profili più adatti agli standard degli hotel partner.',
+        'partnership-card-5-title': 'Monitoraggio Continuo',
+        'partnership-card-5-text': 'Tutor dedicato in loco, check-in regolari con gli studenti e report periodici inviati alla scuola per garantire la massima trasparenza del percorso formativo.',
+        'partnership-card-6-title': 'Network in Crescita',
+        'partnership-card-6-text': 'Accesso a un network internazionale in continua espansione con opportunità future di collaborazione su altri progetti di mobilità europea.',
+        
+        // Trust
+        'trust-title': 'ETN International - Aristos',
+        'trust-subtitle': 'Leader nella mobilità formativa europea da oltre 20 anni',
+        'trust-stat-experience': 'Anni di Esperienza',
+        'trust-stat-placements': 'Studenti Placements',
+        'trust-stat-resorts': 'Resort Partner',
+        'trust-stat-countries': 'Paesi Coinvolti',
+        
+        // Testimonials
+        'testimonials-title': 'Cosa Dicono di Noi',
+        'testimonials-subtitle': 'Le esperienze di Dirigenti e studenti che hanno già scelto Top Class',
+        'testimonial-1-text': '"Collaborare con ETN International è stato semplice e professionale. I nostri studenti sono tornati entusiasti e con competenze concrete che hanno fatto la differenza nel loro curriculum."',
+        'testimonial-1-name': 'Prof.ssa Maria Rossi',
+        'testimonial-1-role': 'Dirigente Scolastico - Istituto Alberghiero "Marco Polo", Roma',
+        'testimonial-2-text': '"Un\'esperienza che ha cambiato la vita di mio figlio. Ha lavorato in un resort 5 stelle, ha migliorato il suo inglese e ora ha un\'offerta di lavoro per la stagione prossima."',
+        'testimonial-2-name': 'Laura Bianchi',
+        'testimonial-2-role': 'Genitore di studente partecipante',
+        'testimonial-3-text': '"Grazie a Top Class ho capito che voglio lavorare nell\'hospitality internazionale. Il supporto del tutor è stato eccezionale e mi sono sentito seguito in ogni momento."',
+        'testimonial-3-name': 'Marco Verdi',
+        'testimonial-3-role': 'Studente partecipante - Edizione Estate 2024',
+        
+        // FAQ
+        'faq-title': 'Domande Frequenti',
+        'faq-subtitle': 'Risposte ai dubbi più comuni dei Dirigenti e dei Referenti PCTO',
+        'faq-1-question': 'Quali sono i requisiti linguistici minimi per gli studenti?',
+        'faq-1-answer': 'È richiesto un livello base di inglese (A2/B1 del QCER) per garantire l\'integrazione nel team internazionale dell\'hotel. Valutiamo le competenze linguistiche durante il colloquio di selezione attraverso un breve test conversazionale. Offriamo anche supporto per il miglioramento linguistico pre-partenza.',
+        'faq-2-question': 'Come viene garantita la sicurezza e il supporto durante il tirocinio?',
+        'faq-2-answer': 'La sicurezza è la nostra priorità assoluta. Offriamo: tutor dedicato in loco disponibile 24/7, assicurazione sanitaria e infortunio completa, alloggio in strutture verificate e sicure, monitoraggio settimanale del benessere dello studente, canale diretto scuola-famiglia-agenzia per qualsiasi necessità.',
+        'faq-3-question': 'Il tirocinio è riconoscibile come PCTO o credito formativo?',
+        'faq-3-answer': 'Assolutamente sì. Rilasciamo certificazione ufficiale delle competenze acquisite (con dettagli delle mansioni svolte e ore completate), documentazione completa per il riconoscimento come percorso PCTO (ex Alternanza Scuola-Lavoro), attestato valido per crediti formativi universitari, e report finale valutativo.',
+        'faq-4-question': 'Qual è il processo di selezione e chi lo gestisce?',
+        'faq-4-answer': 'Gestiamo noi tutto il processo in modo professionale: 1) Riceviamo le candidature inviate dalla scuola o dagli studenti, 2) Effettuiamo un primo screening dei CV, 3) Realizziamo colloqui motivazionali individuali (online o in presenza), 4) Valutiamo le competenze linguistiche, 5) Selezioniamo i profili più adatti agli standard degli hotel partner, 6) Presentiamo i candidati selezionati alle strutture.',
+        'faq-5-question': 'È possibile organizzare info-sessioni per studenti e famiglie?',
+        'faq-5-answer': 'Sì, è uno dei nostri servizi principali! Siamo disponibili per: webinar interattivi online per presentare il programma, incontri in presenza presso il vostro Istituto durante l\'orario scolastico o in orario pomeridiano, partecipazione agli open day della scuola, creazione di materiale informativo personalizzato (brochure, presentazioni). Le sessioni sono gratuite e senza impegno.',
+        'faq-6-question': 'Chi copre i costi del viaggio e del soggiorno?',
+        'faq-6-answer': 'Il programma è strutturato per essere accessibile: il vitto e l\'alloggio sono completamente coperti dal resort ospitante, gli studenti ricevono un\'indennità mensile che copre le spese personali, il viaggio A/R è a carico dello studente (ma possiamo supportare nella ricerca di tariffe agevolate), non ci sono costi di iscrizione o agenzia per gli studenti selezionati.',
+        
+        // Contact
+        'contact-title': 'Inizia la Collaborazione con la Tua Scuola',
+        'contact-description': 'Compila il form per ricevere la brochure completa del programma e fissare una consulenza gratuita con il nostro team.',
+        'contact-label-referent': 'Referente del Programma',
+        'contact-value-referent': 'Eva Ridolfi<br>Senior Partnership Manager',
+        'contact-label-email': 'Email',
+        'contact-value-email': 'eva.ridolfi@etn-international.com<br>topclass@etn-international.com',
+        'contact-label-phone': 'Telefono',
+        'contact-value-phone': '+39 06 12345678<br>+39 333 1234567 (WhatsApp)',
+        'contact-label-address': 'Sede Operativa',
+        'contact-value-address': 'ETN International - Aristos<br>Via Example 123, 00100 Roma (RM)',
+        
+        // Form
+        'form-label-name': 'Nome e Cognome *',
+        'form-placeholder-name': 'Es. Mario Rossi',
+        'form-label-email': 'Email Istituzionale *',
+        'form-placeholder-email': 'nome.cognome@scuola.it',
+        'form-label-phone': 'Telefono *',
+        'form-placeholder-phone': '+39 06 12345678',
+        'form-label-role': 'Ruolo *',
+        'form-option-select': 'Seleziona il tuo ruolo...',
+        'form-option-dirigente': 'Dirigente Scolastico',
+        'form-option-referente': 'Referente PCTO / Internazionalizzazione',
+        'form-option-docente': 'Docente / Formatore',
+        'form-option-segreteria': 'Segreteria Didattica',
+        'form-option-altro': 'Altro',
+        'form-label-school': 'Istituto di Appartenenza *',
+        'form-placeholder-school': 'Es. Istituto Alberghiero \'Marco Polo\' - Roma',
+        'form-label-students': 'Numero Stimato di Studenti Interessati',
+        'form-option-select-students': 'Seleziona...',
+        'form-option-1-5': '1-5 studenti',
+        'form-option-6-10': '6-10 studenti',
+        'form-option-11-20': '11-20 studenti',
+        'form-option-21-plus': 'Oltre 20 studenti',
+        'form-label-message': 'Messaggio / Richiesta Specifica',
+        'form-placeholder-message': 'Descrivi le tue esigenze o richiedi informazioni specifiche...',
+        'form-label-privacy': 'Ho letto e accetto la <a href="#" style="color: var(--coral); text-decoration: underline;">Privacy Policy</a> e il trattamento dei dati personali *',
+        'form-button-submit': 'Invia Richiesta di Informazioni',
+        
+        // CTA
+        'cta-title': 'Pronto a Portare la Tua Scuola nel Mondo?',
+        'cta-text': 'Unisciti alle istituzioni che già collaborano con noi e offri ai tuoi studenti un\'esperienza che cambierà il loro futuro professionale.',
+        'cta-button': 'Inizia Ora la Collaborazione',
+        
+        // Footer
+        'footer-brand-text': 'Programma esclusivo di tirocini internazionali in resort 4★ e 5★ a Rodi per studenti degli Istituti Alberghieri italiani.',
+        'footer-title-quick': 'Link Rapidi',
+        'footer-link-programma': 'Il Programma',
+        'footer-link-galleria': 'Galleria',
+        'footer-link-scuole': 'Per le Scuole',
+        'footer-link-testimonianze': 'Testimonianze',
+        'footer-link-faq': 'FAQ',
+        'footer-title-info': 'Informazioni',
+        'footer-link-chi-siamo': 'Chi Siamo',
+        'footer-link-etn': 'ETN International',
+        'footer-link-lavora': 'Lavora con Noi',
+        'footer-link-blog': 'Blog',
+        'footer-link-contatti': 'Contatti',
+        'footer-title-contact': 'Contatti Diretti',
+        'footer-contact-email': '📧 eva.ridolfi@etn-international.com',
+        'footer-contact-phone': '📞 +39 06 12345678',
+        'footer-contact-mobile': '📱 +39 333 1234567',
+        'footer-contact-address': '🏢 Via Example 123, Roma',
+        'footer-copyright': '&copy; 2024 ETN International - Aristos. Tutti i diritti riservati.',
+        'footer-link-privacy': 'Privacy Policy',
+        'footer-link-cookie': 'Cookie Policy',
+        'footer-link-terms': 'Termini e Condizioni',
+        
+        // Form success message
+        'form-success': 'Grazie per la tua richiesta! Un nostro referente ti contatterà entro 24 ore per una consulenza gratuita.'
+      },
+      en: {
+        // Navigation
+        'nav-programma': 'Program',
+        'nav-galleria': 'Gallery',
+        'nav-scuole': 'For Schools',
+        'nav-testimonianze': 'Testimonials',
+        'nav-faq': 'FAQ',
+        'nav-contatti': 'Contacts',
+        
+        // Hero
+        'hero-badge': '🏆 Exclusive Program for Hospitality Schools',
+        'hero-title-1': 'Train Your Students',
+        'hero-title-2': 'In International Luxury',
+        'hero-subtitle': 'Paid internships in 4★ and 5★ resorts on the island of Rhodes. An experience that transforms talent into an international career.',
+        'hero-cta-primary': 'Request Information for Your School',
+        'hero-cta-secondary': 'Discover the Program',
+        
+        // Stats
+        'stat-experience': 'Years of Experience',
+        'stat-students': 'Students Trained',
+        'stat-resorts': 'Partner Resorts',
+        
+        // Context
+        'context-title': 'Why Choose Top Class',
+        'context-subtitle': 'A unique opportunity to enhance your students\' training and your Institute\'s prestige',
+        'context-card-1-title': 'PCTO and Training Credits',
+        'context-card-1-text': 'Experience recognized as a pathway for transversal skills and orientation, with official certification of skills acquired in an international context.',
+        'context-card-2-title': 'Career Orientation',
+        'context-card-2-text': 'Offer graduates a concrete alternative in the international job market, increasing post-graduation employment rates in excellence facilities.',
+        'context-card-3-title': 'Institute Prestige',
+        'context-card-3-text': 'Collaborating with international excellence networks elevates the school\'s profile, attracts motivated new students, and creates lasting partnerships.',
+        
+        // Details
+        'details-title': 'Program Details',
+        'details-subtitle': 'Everything you need to know about the professional experience in Rhodes',
+        'detail-1-title': 'Eligibility',
+        'detail-1-text': 'Students ≥18 years, recent graduates and enrolled in hospitality schools with a passion for hospitality',
+        'detail-2-title': 'Flexible Duration',
+        'detail-2-text': 'Summer internship (3-6 months) or annual, perfectly integrated with the school calendar',
+        'detail-3-title': 'Compensation',
+        'detail-3-text': 'Competitive monthly allowance + full board and lodging in verified 4★/5★ facilities',
+        'detail-4-title': 'Complete Support',
+        'detail-4-text': 'Full management of contract, insurance, visas and bureaucratic compliance',
+        'detail-5-title': 'Luxury Accommodation',
+        'detail-5-text': 'Selected 4★ and 5★ resorts to guarantee a high-level training experience',
+        'detail-6-title': 'Certification',
+        'detail-6-text': 'Final certificate of acquired skills valid for CV and training credits',
+        
+        // Gallery
+        'gallery-title': 'Discover Rhodes and Our Resorts',
+        'gallery-subtitle': 'Where your students will have an unforgettable experience',
+        
+        // Partnership
+        'partnership-title': 'Partnership with Your School',
+        'partnership-subtitle': 'A simple, structured and beneficial collaboration for PCTO Coordinators and Principals',
+        'partnership-card-1-title': 'Simplified Agreement',
+        'partnership-card-1-text': 'Quick and streamlined framework agreements to allow the school to send candidates in total safety and with complete insurance coverage. Zero complex bureaucracy.',
+        'partnership-card-2-title': 'Dedicated Support for Coordinators',
+        'partnership-card-2-text': 'A dedicated ETN coordinator to manage all bureaucratic practices, monitoring during the internship and constant communication with the school.',
+        'partnership-card-3-title': 'Free Info Sessions',
+        'partnership-card-3-text': 'Availability to organize interactive webinars or in-person meetings at your Institute to present the opportunity in detail to students and families.',
+        'partnership-card-4-title': 'Qualified Selection',
+        'partnership-card-4-text': 'We manage the entire selection process: we receive applications, conduct motivational interviews and select only the profiles best suited to partner hotels\' standards.',
+        'partnership-card-5-title': 'Continuous Monitoring',
+        'partnership-card-5-text': 'Dedicated tutor on-site, regular check-ins with students and periodic reports sent to the school to ensure maximum transparency of the training pathway.',
+        'partnership-card-6-title': 'Growing Network',
+        'partnership-card-6-text': 'Access to an expanding international network with future collaboration opportunities on other European mobility projects.',
+        
+        // Trust
+        'trust-title': 'ETN International - Aristos',
+        'trust-subtitle': 'Leader in European training mobility for over 20 years',
+        'trust-stat-experience': 'Years of Experience',
+        'trust-stat-placements': 'Student Placements',
+        'trust-stat-resorts': 'Partner Resorts',
+        'trust-stat-countries': 'Countries Involved',
+        
+        // Testimonials
+        'testimonials-title': 'What They Say About Us',
+        'testimonials-subtitle': 'Experiences from Principals and students who have already chosen Top Class',
+        'testimonial-1-text': '"Collaborating with ETN International was simple and professional. Our students returned enthusiastic and with concrete skills that made a difference in their curriculum."',
+        'testimonial-1-name': 'Prof. Maria Rossi',
+        'testimonial-1-role': 'Principal - Hospitality Institute "Marco Polo", Rome',
+        'testimonial-2-text': '"An experience that changed my son\'s life. He worked in a 5-star resort, improved his English and now has a job offer for next season."',
+        'testimonial-2-name': 'Laura Bianchi',
+        'testimonial-2-role': 'Parent of participating student',
+        'testimonial-3-text': '"Thanks to Top Class I realized I want to work in international hospitality. The tutor\'s support was exceptional and I felt supported at every moment."',
+        'testimonial-3-name': 'Marco Verdi',
+        'testimonial-3-role': 'Participating Student - Summer Edition 2024',
+        
+        // FAQ
+        'faq-title': 'Frequently Asked Questions',
+        'faq-subtitle': 'Answers to common questions from Principals and PCTO Coordinators',
+        'faq-1-question': 'What are the minimum language requirements for students?',
+        'faq-1-answer': 'A basic level of English (A2/B1 CEFR) is required to ensure integration into the hotel\'s international team. We assess language skills during the selection interview through a brief conversational test. We also offer pre-departure language improvement support.',
+        'faq-2-question': 'How is safety and support guaranteed during the internship?',
+        'faq-2-answer': 'Safety is our absolute priority. We offer: dedicated on-site tutor available 24/7, comprehensive health and accident insurance, accommodation in verified and safe facilities, weekly monitoring of student well-being, direct school-family-agency channel for any needs.',
+        'faq-3-question': 'Is the internship recognizable as PCTO or training credit?',
+        'faq-3-answer': 'Absolutely yes. We issue official certification of acquired skills (with details of tasks performed and hours completed), complete documentation for recognition as a PCTO pathway (formerly School-Work Alternation), certificate valid for university training credits, and final evaluative report.',
+        'faq-4-question': 'What is the selection process and who manages it?',
+        'faq-4-answer': 'We manage the entire process professionally: 1) We receive applications sent by the school or students, 2) We conduct initial CV screening, 3) We hold individual motivational interviews (online or in-person), 4) We assess language skills, 5) We select profiles best suited to partner hotels\' standards, 6) We present selected candidates to facilities.',
+        'faq-5-question': 'Is it possible to organize info sessions for students and families?',
+        'faq-5-answer': 'Yes, it\'s one of our main services! We\'re available for: interactive online webinars to present the program, in-person meetings at your Institute during school hours or in the afternoon, participation in school open days, creation of personalized informational material (brochures, presentations). Sessions are free and without obligation.',
+        'faq-6-question': 'Who covers travel and accommodation costs?',
+        'faq-6-answer': 'The program is structured to be accessible: full board and lodging are completely covered by the host resort, students receive a monthly allowance covering personal expenses, round-trip travel is at student\'s expense (but we can support finding discounted rates), there are no registration or agency fees for selected students.',
+        
+        // Contact
+        'contact-title': 'Start Collaboration with Your School',
+        'contact-description': 'Fill out the form to receive the complete program brochure and schedule a free consultation with our team.',
+        'contact-label-referent': 'Program Coordinator',
+        'contact-value-referent': 'Eva Ridolfi<br>Senior Partnership Manager',
+        'contact-label-email': 'Email',
+        'contact-value-email': 'eva.ridolfi@etn-international.com<br>topclass@etn-international.com',
+        'contact-label-phone': 'Phone',
+        'contact-value-phone': '+39 06 12345678<br>+39 333 1234567 (WhatsApp)',
+        'contact-label-address': 'Operational Headquarters',
+        'contact-value-address': 'ETN International - Aristos<br>Via Example 123, 00100 Rome (RM)',
+        
+        // Form
+        'form-label-name': 'Full Name *',
+        'form-placeholder-name': 'e.g. Mario Rossi',
+        'form-label-email': 'Institutional Email *',
+        'form-placeholder-email': 'name.surname@school.it',
+        'form-label-phone': 'Phone *',
+        'form-placeholder-phone': '+39 06 12345678',
+        'form-label-role': 'Role *',
+        'form-option-select': 'Select your role...',
+        'form-option-dirigente': 'School Principal',
+        'form-option-referente': 'PCTO / Internationalization Coordinator',
+        'form-option-docente': 'Teacher / Trainer',
+        'form-option-segreteria': 'Administrative Staff',
+        'form-option-altro': 'Other',
+        'form-label-school': 'Institute *',
+        'form-placeholder-school': 'e.g. Hospitality Institute \'Marco Polo\' - Rome',
+        'form-label-students': 'Estimated Number of Interested Students',
+        'form-option-select-students': 'Select...',
+        'form-option-1-5': '1-5 students',
+        'form-option-6-10': '6-10 students',
+        'form-option-11-20': '11-20 students',
+        'form-option-21-plus': 'Over 20 students',
+        'form-label-message': 'Message / Specific Request',
+        'form-placeholder-message': 'Describe your needs or request specific information...',
+        'form-label-privacy': 'I have read and accept the <a href="#" style="color: var(--coral); text-decoration: underline;">Privacy Policy</a> and personal data processing *',
+        'form-button-submit': 'Send Information Request',
+        
+        // CTA
+        'cta-title': 'Ready to Take Your School Global?',
+        'cta-text': 'Join the institutions already collaborating with us and offer your students an experience that will change their professional future.',
+        'cta-button': 'Start Collaboration Now',
+        
+        // Footer
+        'footer-brand-text': 'Exclusive internship program in 4★ and 5★ resorts in Rhodes for students of Italian Hospitality Institutes.',
+        'footer-title-quick': 'Quick Links',
+        'footer-link-programma': 'The Program',
+        'footer-link-galleria': 'Gallery',
+        'footer-link-scuole': 'For Schools',
+        'footer-link-testimonianze': 'Testimonials',
+        'footer-link-faq': 'FAQ',
+        'footer-title-info': 'Information',
+        'footer-link-chi-siamo': 'About Us',
+        'footer-link-etn': 'ETN International',
+        'footer-link-lavora': 'Work With Us',
+        'footer-link-blog': 'Blog',
+        'footer-link-contatti': 'Contacts',
+        'footer-title-contact': 'Direct Contacts',
+        'footer-contact-email': '📧 eva.ridolfi@etn-international.com',
+        'footer-contact-phone': '📞 +39 06 12345678',
+        'footer-contact-mobile': '📱 +39 333 1234567',
+        'footer-contact-address': '🏢 Via Example 123, Rome',
+        'footer-copyright': '&copy; 2024 ETN International - Aristos. All rights reserved.',
+        'footer-link-privacy': 'Privacy Policy',
+        'footer-link-cookie': 'Cookie Policy',
+        'footer-link-terms': 'Terms and Conditions',
+        
+        // Form success message
+        'form-success': 'Thank you for your request! Our coordinator will contact you within 24 hours for a free consultation.'
+      },
+      pl: {
+        // Navigation
+        'nav-programma': 'Program',
+        'nav-galleria': 'Galeria',
+        'nav-scuole': 'Dla Szkół',
+        'nav-testimonianze': 'Opinie',
+        'nav-faq': 'FAQ',
+        'nav-contatti': 'Kontakt',
+        
+        // Hero
+        'hero-badge': '🏆 Ekskluzywny Program dla Szkół Hotelarskich',
+        'hero-title-1': 'Szkol Swoich Studentów',
+        'hero-title-2': 'W Międzynarodowym Luksusie',
+        'hero-subtitle': 'Płatne staże w 4★ i 5★ resortach na wyspie Rodos. Doświadczenie, które przekształca talent w międzynarodową karierę.',
+        'hero-cta-primary': 'Poproś o Informacje dla Swojej Szkoły',
+        'hero-cta-secondary': 'Odkryj Program',
+        
+        // Stats
+        'stat-experience': 'Lat Doświadczenia',
+        'stat-students': 'Wyszkolonych Studentów',
+        'stat-resorts': 'Partnerskich Resortów',
+        
+        // Context
+        'context-title': 'Dlaczego Wybrać Top Class',
+        'context-subtitle': 'Unikalna okazja, aby podnieść jakość kształcenia swoich studentów i prestiż swojej szkoły',
+        'context-card-1-title': 'PCTO i Kredyty Szkoleniowe',
+        'context-card-1-text': 'Doświadczenie uznawane jako ścieżka rozwoju kompetencji transversalnych i orientacji, z oficjalną certyfikacją kompetencji nabytych w kontekście międzynarodowym.',
+        'context-card-2-title': 'Orientacja Zawodowa',
+        'context-card-2-text': 'Zaoferuj absolwentom konkretną alternatywę na międzynarodowym rynku pracy, zwiększając wskaźniki zatrudnienia po ukończeniu szkoły w obiektach najwyższej klasy.',
+        'context-card-3-title': 'Prestiż Szkoły',
+        'context-card-3-text': 'Współpraca z międzynarodowymi sieciami najwyższej klasy podnosi profil szkoły, przyciąga nowych zmotywowanych studentów i tworzy trwałe partnerstwa.',
+        
+        // Details
+        'details-title': 'Szczegóły Programu',
+        'details-subtitle': 'Wszystko, co musisz wiedzieć o doświadczeniu zawodowym na Rodos',
+        'detail-1-title': 'Kwalifikowalność',
+        'detail-1-text': 'Studenci ≥18 lat, absolwenci i uczniowie szkół hotelarskich z pasją do hospitality',
+        'detail-2-title': 'Elastyczny Czas Trwania',
+        'detail-2-text': 'Staże letnie (3-6 miesięcy) lub roczne, doskonale zintegrowane z kalendarzem szkolnym',
+        'detail-3-title': 'Wynagrodzenie',
+        'detail-3-text': 'Konkurencyjne miesięczne wynagrodzenie + pełne wyżywienie i zakwaterowanie w zweryfikowanych obiektach 4★/5★',
+        'detail-4-title': 'Kompleksowe Wsparcie',
+        'detail-4-text': 'Pełna obsługa umowy, ubezpieczenia, wiz i zgodności biurokratycznych',
+        'detail-5-title': 'Luksusowe Zakwaterowanie',
+        'detail-5-text': 'Wybrane resorty 4★ i 5★ gwarantujące wysokiej jakości doświadczenie szkoleniowe',
+        'detail-6-title': 'Certyfikacja',
+        'detail-6-text': 'Końcowy certyfikat nabytych kompetencji ważny do CV i kredytów szkoleniowych',
+        
+        // Gallery
+        'gallery-title': 'Odkryj Rodos i Nasze Resorty',
+        'gallery-subtitle': 'Gdzie Twoi studenci przeżyją niezapomniane doświadczenie',
+        
+        // Partnership
+        'partnership-title': 'Partnerstwo z Twoją Szkołą',
+        'partnership-subtitle': 'Prosta, ustrukturyzowana i korzystna współpraca dla Koordynatorów PCTO i Dyrektorów',
+        'partnership-card-1-title': 'Uproszczona Umowa',
+        'partnership-card-1-text': 'Szybkie i usprawnione umowy ramowe pozwalające szkole wysyłać kandydatów w pełnym bezpieczeństwie i z kompletnym ubezpieczeniem. Zero skomplikowanej biurokracji.',
+        'partnership-card-2-title': 'Dedykowane Wsparcie dla Koordynatorów',
+        'partnership-card-2-text': 'Dedykowany koordynator ETN do zarządzania wszystkimi praktykami biurokratycznymi, monitorowania podczas stażu i stałej komunikacji ze szkołą.',
+        'partnership-card-3-title': 'Darmowe Sesje Informacyjne',
+        'partnership-card-3-text': 'Możliwość organizacji interaktywnych webinarów lub spotkań na żywo w Twojej szkole, aby szczegółowo przedstawić okazję studentom i rodzinom.',
+        'partnership-card-4-title': 'Kwalifikowana Selekcja',
+        'partnership-card-4-text': 'Zarządzamy całym procesem selekcji: otrzymujemy aplikacje, przeprowadzamy wywiady motywacyjne i wybieramy tylko profile najlepiej odpowiadające standardom partnerskich hoteli.',
+        'partnership-card-5-title': 'Ciągłe Monitorowanie',
+        'partnership-card-5-text': 'Dedykowany tutor na miejscu, regularne check-iny ze studentami i okresowe raporty wysyłane do szkoły, aby zapewnić maksymalną transparentność ścieżki szkoleniowej.',
+        'partnership-card-6-title': 'Rosnąca Sieć',
+        'partnership-card-6-text': 'Dostęp do rozszerzającej się międzynarodowej sieci z przyszłymi możliwościami współpracy nad innymi projektami mobilności europejskiej.',
+        
+        // Trust
+        'trust-title': 'ETN International - Aristos',
+        'trust-subtitle': 'Lider w europejskiej mobilności szkoleniowej od ponad 20 lat',
+        'trust-stat-experience': 'Lat Doświadczenia',
+        'trust-stat-placements': 'Student Placements',
+        'trust-stat-resorts': 'Partnerskich Resortów',
+        'trust-stat-countries': 'Zaangażowanych Krajów',
+        
+        // Testimonials
+        'testimonials-title': 'Co Mówią o Nas',
+        'testimonials-subtitle': 'Doświadczenia Dyrektorów i studentów, którzy już wybrali Top Class',
+        'testimonial-1-text': '"Współpraca z ETN International była prosta i profesjonalna. Nasi studenci wrócili entuzjastyczni i z konkretnymi kompetencjami, które zrobiły różnicę w ich CV."',
+        'testimonial-1-name': 'Prof. Maria Rossi',
+        'testimonial-1-role': 'Dyrektor - Instytut Hotelarski "Marco Polo", Rzym',
+        'testimonial-2-text': '"Doświadczenie, które zmieniło życie mojego syna. Pracował w 5-gwiazdkowym resorcie, poprawił angielski i ma teraz ofertę pracy na następny sezon."',
+        'testimonial-2-name': 'Laura Bianchi',
+        'testimonial-2-role': 'Rodzic uczestniczącego studenta',
+        'testimonial-3-text': '"Dzięki Top Class zrozumiałem, że chcę pracować w międzynarodowym hospitality. Wsparcie tutora było wyjątkowe i czułem się opiekowany w każdej chwili."',
+        'testimonial-3-name': 'Marco Verdi',
+        'testimonial-3-role': 'Uczestniczący Student - Edycja Lato 2024',
+        
+        // FAQ
+        'faq-title': 'Częste Pytania',
+        'faq-subtitle': 'Odpowiedzi na najczęstsze pytania Dyrektorów i Koordynatorów PCTO',
+        'faq-1-question': 'Jakie są minimalne wymagania językowe dla studentów?',
+        'faq-1-answer': 'Wymagany jest podstawowy poziom języka angielskiego (A2/B1 CEFR), aby zapewnić integrację z międzynarodowym zespołem hotelu. Oceniamy kompetencje językowe podczas wywiadu selekcyjnego poprzez krótki test konwersacyjny. Oferujemy również wsparcie w poprawie języka przed wyjazdem.',
+        'faq-2-question': 'Jak zapewnione jest bezpieczeństwo i wsparcie podczas stażu?',
+        'faq-2-answer': 'Bezpieczeństwo jest naszym absolutnym priorytetem. Oferujemy: dedykowany tutor na miejscu dostępny 24/7, kompleksowe ubezpieczenie zdrowotne i od wypadków, zakwaterowanie w zweryfikowanych i bezpiecznych obiektach, cotygodniowe monitorowanie samopoczucia studenta, bezpośredni kanał szkoła-rodzina-agencja dla wszelkich potrzeb.',
+        'faq-3-question': 'Czy staż jest uznawany jako PCTO lub kredyt szkoleniowy?',
+        'faq-3-answer': 'Absolutnie tak. Wydajemy oficjalną certyfikację nabytych kompetencji (ze szczegółami wykonanych zadań i ukończonych godzin), kompletną dokumentację do uznania jako ścieżka PCTO (dawniej Alternancia Scuola-Lavoro), certyfikat ważny dla uniwersyteckich kredytów szkoleniowych i końcowy raport ewaluacyjny.',
+        'faq-4-question': 'Jaki jest proces selekcji i kto go zarządza?',
+        'faq-4-answer': 'Zarządzamy całym procesem profesjonalnie: 1) Otrzymujemy aplikacje wysłane przez szkołę lub studentów, 2) Przeprowadzamy wstępny screening CV, 3) Realizujemy indywidualne wywiady motywacyjne (online lub na żywo), 4) Oceniamy kompetencje językowe, 5) Wybieramy profile najlepiej odpowiadające standardom partnerskich hoteli, 6) Prezentujemy wybranych kandydatów obiektom.',
+        'faq-5-question': 'Czy można organizować sesje informacyjne dla studentów i rodzin?',
+        'faq-5-answer': 'Tak, to jedna z naszych głównych usług! Jesteśmy dostępni dla: interaktywnych webinarów online do prezentacji programu, spotkań na żywo w Twojej szkole podczas godzin szkolnych lub popołudniowych, udziału w dniach otwartych szkoły, tworzenia spersonalizowanych materiałów informacyjnych (broszury, prezentacje). Sesje są darmowe i bez zobowiązań.',
+        'faq-6-question': 'Kto pokrywa koszty podróży i zakwaterowania?',
+        'faq-6-answer': 'Program jest ustrukturyzowany, aby był dostępny: pełne wyżywienie i zakwaterowanie są całkowicie pokrywane przez goszczący resort, studenci otrzymują miesięczne wynagrodzenie pokrywające wydatki osobiste, podróż w obie strony jest na koszt studenta (ale możemy wesprzeć w znalezieniu preferencyjnych taryf), nie ma kosztów rejestracyjnych lub agencyjnych dla wybranych studentów.',
+        
+        // Contact
+        'contact-title': 'Rozpocznij Współpracę z Twoją Szkołą',
+        'contact-description': 'Wypełnij formularz, aby otrzymać kompletną broszurę programu i umówić się na darmową konsultację z naszym zespołem.',
+        'contact-label-referent': 'Koordynator Programu',
+        'contact-value-referent': 'Eva Ridolfi<br>Senior Partnership Manager',
+        'contact-label-email': 'Email',
+        'contact-value-email': 'eva.ridolfi@etn-international.com<br>topclass@etn-international.com',
+        'contact-label-phone': 'Telefon',
+        'contact-value-phone': '+39 06 12345678<br>+39 333 1234567 (WhatsApp)',
+        'contact-label-address': 'Siedziba Operacyjna',
+        'contact-value-address': 'ETN International - Aristos<br>Via Example 123, 00100 Roma (RM)',
+        
+        // Form
+        'form-label-name': 'Imię i Nazwisko *',
+        'form-placeholder-name': 'np. Mario Rossi',
+        'form-label-email': 'Email Instytucjonalny *',
+        'form-placeholder-email': 'imie.nazwisko@szkola.it',
+        'form-label-phone': 'Telefon *',
+        'form-placeholder-phone': '+39 06 12345678',
+        'form-label-role': 'Rola *',
+        'form-option-select': 'Wybierz swoją rolę...',
+        'form-option-dirigente': 'Dyrektor Szkoły',
+        'form-option-referente': 'Koordynator PCTO / Internacjonalizacji',
+        'form-option-docente': 'Nauczyciel / Trener',
+        'form-option-segreteria': 'Personel Administracyjny',
+        'form-option-altro': 'Inne',
+        'form-label-school': 'Instytut *',
+        'form-placeholder-school': 'np. Instytut Hotelarski \'Marco Polo\' - Rzym',
+        'form-label-students': 'Szacowana Liczba Zainteresowanych Studentów',
+        'form-option-select-students': 'Wybierz...',
+        'form-option-1-5': '1-5 studentów',
+        'form-option-6-10': '6-10 studentów',
+        'form-option-11-20': '11-20 studentów',
+        'form-option-21-plus': 'Ponad 20 studentów',
+        'form-label-message': 'Wiadomość / Specyficzne Żądanie',
+        'form-placeholder-message': 'Opisz swoje potrzeby lub poproś o konkretne informacje...',
+        'form-label-privacy': 'Przeczytałem i akceptuję <a href="#" style="color: var(--coral); text-decoration: underline;">Politykę Prywatności</a> i przetwarzanie danych osobowych *',
+        'form-button-submit': 'Wyślij Prośbę o Informacje',
+        
+        // CTA
+        'cta-title': 'Gotowy, aby Wyprowadzić Swoją Szkołę na Świat?',
+        'cta-text': 'Dołącz do instytucji już współpracujących z nami i zaoferuj swoim studentom doświadczenie, które zmieni ich przyszłość zawodową.',
+        'cta-button': 'Rozpocznij Współpracę Teraz',
+        
+        // Footer
+        'footer-brand-text': 'Ekskluzywny program staży w 4★ i 5★ resortach na Rodos dla studentów włoskich Instytutów Hotelarskich.',
+        'footer-title-quick': 'Szybkie Linki',
+        'footer-link-programma': 'Program',
+        'footer-link-galleria': 'Galeria',
+        'footer-link-scuole': 'Dla Szkół',
+        'footer-link-testimonianze': 'Opinie',
+        'footer-link-faq': 'FAQ',
+        'footer-title-info': 'Informacje',
+        'footer-link-chi-siamo': 'O Nas',
+        'footer-link-etn': 'ETN International',
+        'footer-link-lavora': 'Pracuj z Nami',
+        'footer-link-blog': 'Blog',
+        'footer-link-contatti': 'Kontakt',
+        'footer-title-contact': 'Bezpośrednie Kontakty',
+        'footer-contact-email': '📧 eva.ridolfi@etn-international.com',
+        'footer-contact-phone': '📞 +39 06 12345678',
+        'footer-contact-mobile': '📱 +39 333 1234567',
+        'footer-contact-address': '🏢 Via Example 123, Rzym',
+        'footer-copyright': '&copy; 2024 ETN International - Aristos. Wszelkie prawa zastrzeżone.',
+        'footer-link-privacy': 'Polityka Prywatności',
+        'footer-link-cookie': 'Polityka Cookie',
+        'footer-link-terms': 'Regulamin',
+        
+        // Form success message
+        'form-success': 'Dziękujemy za Twoją prośbę! Nasz koordynator skontaktuje się z Tobą w ciągu 24 godzin na darmową konsultację.'
+      }
+    };
+
+    function updateLanguage(lang) {
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          element.setAttribute('placeholder', translations[lang][key]);
+        }
+      });
+      
+      // Update title attributes
+      document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        if (translations[lang] && translations[lang][key]) {
+          element.setAttribute('title', translations[lang][key]);
+        }
+      });
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      
+      // Save preference
+      localStorage.setItem('topClassLanguage', lang);
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // Initialize language switcher
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        alert('Funzionalità multilingua: per attivare le traduzioni complete, duplicare la pagina e tradurre i contenuti.');
+        const lang = btn.getAttribute('data-lang');
+        updateLanguage(lang);
       });
     });
+
+    // Load saved language or default to Italian
+    const savedLang = localStorage.getItem('topClassLanguage') || 'it';
+    updateLanguage(savedLang);
     
     // Form Submission
     document.querySelector('form').addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       // Get form data
       const formData = new FormData(this);
       const data = Object.fromEntries(formData);
-      
+
       // Here you would normally send the data to a server
       console.log('Form data:', data);
-      
-      // Show success message
-      alert('Grazie per la tua richiesta! Un nostro referente ti contatterà entro 24 ore per una consulenza gratuita.');
-      
+
+      // Get current language and show success message
+      const currentLang = localStorage.getItem('topClassLanguage') || 'it';
+      alert(translations[currentLang]['form-success']);
+
       // Reset form
       this.reset();
     });
